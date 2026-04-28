@@ -556,16 +556,6 @@ DramRunSummary run_dram_eight_single_core_single_controller_test(
     return summary;
 }
 
-struct [[maybe_unused]] DramPerCoreResult {
-    CoreCoord core;
-    DramBaseResult result;
-};
-
-struct [[maybe_unused]] DramMultiInstanceSummary {
-    DramRunSummary summary;
-    std::vector<DramPerCoreResult> per_core_results;
-};
-
 [[maybe_unused]] DramMultiInstanceSummary run_dram_eight_single_core_single_controller_test_verbose(
     tt::tt_metal::MeshDispatchFixture* fixture,
     const std::shared_ptr<tt::tt_metal::distributed::MeshDevice>& mesh_device,

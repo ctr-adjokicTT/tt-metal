@@ -44,8 +44,9 @@ static inline struct l1_allocator new_erisc_allocator() {
     };
 }
 
-static inline uint32_t l1_alloc(struct l1_allocator& alloc, uint32_t size) {
-    size = ROUND_UP(size, ALIGNMENT);
+[[maybe_unused]]
+static inline uint32_t l1_alloc(struct l1_allocator& alloc, uint32_t size, uint32_t alignment = ALIGNMENT) {
+    size = ROUND_UP(size, alignment);
 
     TT_FATAL(alloc.start + size <= alloc.end, "Couldn't allocate in L1");
 
